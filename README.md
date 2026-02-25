@@ -3,7 +3,7 @@
 
 This repository demonstrates production-style CI/CD pipelines using Jenkins to build, push, and deploy Python applications as containers on AWS.
 
-The focus is on modern container workflows, using Terraform, Amazon ECR, and Amazon ECS (Fargate)—not legacy EC2-based deployments.
+The focus is on modern container workflows, using Terraform , push to docker-hub or ecr for securing images.
 
 🧠 What This Repository Covers
 
@@ -11,8 +11,7 @@ The focus is on modern container workflows, using Terraform, Amazon ECR, and Ama
 ✔ Dockerized Python applications
 ✔ Infrastructure as Code using Terraform
 ✔ Secure AWS access using IAM Roles
-✔ Amazon ECR for container images
-✔ Amazon ECS (Fargate) for deployment
+✔ Amazon ECR or docker-hub for container images
 ✔ Parameter-based Apply / Destroy workflows
 
 🏗️ Supported Deployment Models
@@ -30,9 +29,7 @@ Use case: Standardized container builds
 
 Jenkins builds Docker image
 
-Pushes image to Amazon ECR
-
-Terraform deploys application to Amazon ECS (Fargate)
+Pushes image to Amazon ECR or Docker-hub
 
 Jenkins supports Apply / Destroy using parameters
 
@@ -47,8 +44,8 @@ Jenkins (CI/CD)
   ├── Docker Build
   ├── Push Image to ECR
   └── Terraform
-        ├── APPLY  → Deploy ECS
-        └── DESTROY → Tear Down
+        ├── APPLY  → makes infra Ec2 with docker install then build image , push image, pull image from ecr/docker-hub , runs python app.
+        └── DESTROY → Tear Down all old infra to create new one for fresh builds.
   ↓
 Amazon ECS (Fargate)
 
@@ -102,7 +99,7 @@ Idempotent deployments
 
 🧠 Interview-Ready Summary
 
-“This project demonstrates a Jenkins-driven CI/CD pipeline that builds Docker images, pushes them to Amazon ECR, and deploys containerized applications on Amazon ECS Fargate using Terraform.”
+“This project demonstrates a Jenkins-driven CI/CD pipeline that builds Docker images, pushes them to Amazon ECR, and deploys containerized applications on Amazon Ec2.”
 
 🛠️ Prerequisites
 
@@ -118,8 +115,6 @@ IAM Role attached to Jenkins EC2 with:
 
 ECR
 
-ECS
-
 IAM
 
 CloudWatch
@@ -130,7 +125,6 @@ VPC permissions
 Requirement	Solution
 Containerized apps	Docker
 Secure image storage	ECR
-Serverless containers	ECS Fargate
 Repeatable infra	Terraform
 Safe approvals	Jenkins parameters
 🏁 Final Notes
