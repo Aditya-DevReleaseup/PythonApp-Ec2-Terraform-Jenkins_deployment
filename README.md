@@ -1,5 +1,5 @@
 🚀 Jenkins CI/CD for Containerized AWS Deployments
-(Docker • Terraform • ECR • ECS)
+(Docker • Terraform • EC2 )
 
 This repository demonstrates production-style CI/CD pipelines using Jenkins to build, push, and deploy Python applications as containers on AWS.
 
