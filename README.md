@@ -5,8 +5,6 @@ This repository demonstrates production-style CI/CD pipelines using Jenkins to b
 
 The focus is on modern container workflows, using Terraform , push to docker-hub or ecr for securing images.
 
-🧠 What This Repository Covers
-
 ✔ Jenkins Declarative Pipelines
 ✔ Dockerized Python applications
 ✔ Infrastructure as Code using Terraform
